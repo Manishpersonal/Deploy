@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Vertical (basic) form</h2>
+  <form role="form">
+    <div class="form-group demo">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+
+</body>
+<!-- script of overlay  -->
+<script type="text/javascript">
+	$("document").ready(function(){
+	  var ele = "<div id='overlay' style='z-index:999;background-color:black;opacity:0.2;position:absolute;left:0px;top:0px;width:100%;height:100%'></div>";
+	  $(".form-control").on("focusin", function(){
+	    $(this).css({"z-index":1000,"position":"relative"})
+	    $(this).parent(".form-group").append(ele);
+	  }).on("focusout", function(){
+	    $(this).css({"z-index":"auto"});
+	    $("#overlay").remove();
+	  })
+	})
+</script>
+</html>

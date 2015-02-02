@@ -1,0 +1,13 @@
+<div id="canvasOne">
+	Global Search : <input type="text" ng-model="global"/>
+	<table>
+		<tr>
+			<td ng-click="predicate = 'name'; reverse=!reverse">Name</td>
+			<td ng-click="predicate = 'age'; reverse=!reverse">Age</td>
+		</tr>
+		<tr ng-repeat="product in person | orderBy:predicate:reverse | filter: global">
+			<td>{{product.name}}</td>
+			<td>{{product.age}}</td>
+		</tr>
+	</table>
+</div>
